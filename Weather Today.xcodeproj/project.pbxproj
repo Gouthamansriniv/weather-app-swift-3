@@ -69,6 +69,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7772CB361EC12E7700574815 /* ApplicationDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				77B87EE01EBC02C70058D877 /* AppDelegate.swift */,
+			);
+			name = ApplicationDelegate;
+			sourceTree = "<group>";
+		};
+		7772CB371EC12E9400574815 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				77B87EEE1EBC02C70058D877 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		77B87ED41EBC02C70058D877 = {
 			isa = PBXGroup;
 			children = (
@@ -94,13 +110,8 @@
 				77B87F201EBE35C20058D877 /* Views */,
 				77B87F1F1EBE35BD0058D877 /* Controllers */,
 				77B87F1E1EBE35B30058D877 /* Models */,
-				77B87EE01EBC02C70058D877 /* AppDelegate.swift */,
-				77B87F1C1EBE08280058D877 /* ForecastDayTableViewCell.swift */,
-				77B87EE61EBC02C70058D877 /* Main.storyboard */,
-				77B87EEB1EBC02C70058D877 /* LaunchScreen.storyboard */,
-				77B87EEE1EBC02C70058D877 /* Info.plist */,
-				77B87F161EBCC93C0058D877 /* WeatherDay.swift */,
-				77B87F1A1EBE06A60058D877 /* ForeViewController.swift */,
+				7772CB361EC12E7700574815 /* ApplicationDelegate */,
+				7772CB371EC12E9400574815 /* SupportingFiles */,
 			);
 			path = "Weather Today";
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		77B87F1E1EBE35B30058D877 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				77B87F161EBCC93C0058D877 /* WeatherDay.swift */,
 				77B87F221EBE36470058D877 /* CurrentWeather.swift */,
 				77B87F261EBE5BC90058D877 /* CurrentWeatherViewModel.swift */,
 				77B87F241EBE3D6A0058D877 /* WeatherIcon.swift */,
@@ -118,6 +130,8 @@
 		77B87F1F1EBE35BD0058D877 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				77B87F1C1EBE08280058D877 /* ForecastDayTableViewCell.swift */,
+				77B87F1A1EBE06A60058D877 /* ForeViewController.swift */,
 				7772CB331EBFD2EC00574815 /* WeatherTodayViewController.swift */,
 			);
 			name = Controllers;
@@ -126,6 +140,8 @@
 		77B87F201EBE35C20058D877 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				77B87EE61EBC02C70058D877 /* Main.storyboard */,
+				77B87EEB1EBC02C70058D877 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
