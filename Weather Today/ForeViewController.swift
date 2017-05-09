@@ -26,8 +26,10 @@ extension ForeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue Reusable Cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath) as! ForecastDayTableViewCell
         
+        // Configure Cell
         cell.weatherConditionImageView.image = #imageLiteral(resourceName: "ForecastIcon")
         cell.weekdayLabel.text = self.weatherDays[indexPath.row]
         

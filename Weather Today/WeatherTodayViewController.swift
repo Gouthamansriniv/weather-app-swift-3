@@ -9,6 +9,7 @@
 import UIKit
 
 class WeatherTodayViewController: UIViewController {
+    // MARK: - Properties
     
     @IBOutlet var weatherImageView: UIImageView!
     @IBOutlet var cityNameLabel: UILabel!
@@ -20,17 +21,26 @@ class WeatherTodayViewController: UIViewController {
     @IBOutlet var windSpeedLabel: UILabel!
     @IBOutlet var windDirectionLabel: UILabel!
     
-    fileprivate let openWeatherMapKey = "933887d73fafeb70d31b6c5566986168"
+    let client = OpenWeatherMapAPIClient()
     
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Today"
-        let currentWeather = CurrentWeather(cityName: "Dublin", temperature: 17.56, weatherCondition: "Sunny", humidity: 63, precipitationProbability: 0.1, pressure: 1009, windSpeed: 3.6, windDeg: 50, icon: "02d")
-        let currentWeatherViewModel = CurrentWeatherViewModel(model: currentWeather)
-        displayWeather(using: currentWeatherViewModel)
+        
+        let coordinate = Coordinate(latitude: 37.8269, longitude: -122.4233)
+        
+        client.getCurrentWeather(at: coordinate) { currentWeather, error in
+            if let currentWeather = currentWeather {
+                let currentWeatherViewModel = CurrentWeatherViewModel(model: currentWeather)
+                self.displayWeather(using: currentWeatherViewModel)
+            }
+        }
     }
+    
+    // MARK: - View Methods
     
     func displayWeather(using viewModel: CurrentWeatherViewModel) {
         self.cityNameLabel.text = viewModel.cityName
