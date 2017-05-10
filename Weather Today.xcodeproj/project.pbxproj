@@ -12,6 +12,7 @@
 		7772CB3D1EC13D0E00574815 /* OpenWeatherMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772CB3C1EC13D0E00574815 /* OpenWeatherMapError.swift */; };
 		7772CB3F1EC1426B00574815 /* OpenWeatherMapAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772CB3E1EC1426B00574815 /* OpenWeatherMapAPIClient.swift */; };
 		7772CB411EC145A800574815 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772CB401EC145A800574815 /* Coordinate.swift */; };
+		7772CB441EC2730600574815 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772CB431EC2730600574815 /* PermissionsViewController.swift */; };
 		77B87EE11EBC02C70058D877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87EE01EBC02C70058D877 /* AppDelegate.swift */; };
 		77B87EE81EBC02C70058D877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B87EE61EBC02C70058D877 /* Main.storyboard */; };
 		77B87EEA1EBC02C70058D877 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B87EE91EBC02C70058D877 /* Images.xcassets */; };
@@ -35,6 +36,7 @@
 		7772CB3C1EC13D0E00574815 /* OpenWeatherMapError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapError.swift; sourceTree = "<group>"; };
 		7772CB3E1EC1426B00574815 /* OpenWeatherMapAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapAPIClient.swift; sourceTree = "<group>"; };
 		7772CB401EC145A800574815 /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		7772CB431EC2730600574815 /* PermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		77B87EDD1EBC02C70058D877 /* Weather Today.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Today.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B87EE01EBC02C70058D877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77B87EE71EBC02C70058D877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		7772CB421EC272F000574815 /* PermissionsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7772CB431EC2730600574815 /* PermissionsViewController.swift */,
+			);
+			name = PermissionsViewController;
+			sourceTree = "<group>";
+		};
 		77B87ED41EBC02C70058D877 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 		77B87F1F1EBE35BD0058D877 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7772CB421EC272F000574815 /* PermissionsViewController */,
 				7772CB381EC1372700574815 /* WeatherTodayViewController */,
 				7772CB391EC1373800574815 /* ForecastViewController */,
 			);
@@ -348,6 +359,7 @@
 				77B87F1B1EBE06A60058D877 /* ForeViewController.swift in Sources */,
 				77B87F171EBCC93C0058D877 /* WeatherDay.swift in Sources */,
 				7772CB341EBFD2EC00574815 /* WeatherTodayViewController.swift in Sources */,
+				7772CB441EC2730600574815 /* PermissionsViewController.swift in Sources */,
 				7772CB411EC145A800574815 /* Coordinate.swift in Sources */,
 				77B87EE11EBC02C70058D877 /* AppDelegate.swift in Sources */,
 				77B87F231EBE36470058D877 /* CurrentWeather.swift in Sources */,

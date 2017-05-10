@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Coordinate {
-    let latitude: Double
-    let longitude: Double
+    static var sharedInstance = Coordinate(latitude: 0.0, longitude: 0.0)
+    
+//    init(latitude: Double, longitude: Double) {
+//        self.latitude = latitude
+//        self.longitude = longitude
+//    }
+    
+    var latitude: Double
+    var longitude: Double
 }
 
 extension Coordinate: CustomStringConvertible {

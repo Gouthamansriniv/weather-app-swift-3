@@ -10,13 +10,13 @@ import Foundation
 
 struct CurrentWeather {
     var cityName: String = ""
-    var temperature: Double = 0
+    var temperature: Double = Double.infinity
     var weatherCondition: String = ""
-    var humidity: Double = 0
-    var precipitationProbability: Double = 0
-    var pressure: Double = 0
-    var windSpeed: Double = 0
-    var windDeg: Double = 0
+    var humidity: Double = Double.infinity
+    var precipitationProbability: Double = Double.infinity
+    var pressure: Double = Double.infinity
+    var windSpeed: Double = Double.infinity
+    var windDeg: Double = Double.infinity
     var icon: String = ""
 }
 

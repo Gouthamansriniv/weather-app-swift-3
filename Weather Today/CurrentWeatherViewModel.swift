@@ -10,38 +10,34 @@ import Foundation
 import UIKit
 
 struct CurrentWeatherViewModel {
-    let cityName: String
-    let temperature: String
-    let weatherCondition: String
-    let humidity: String
-    let precipitationProbability: String
-    let pressure: String
-    let windSpeed: String
-    let windDeg: String
-    let windDirection: String
-    let icon: UIImage
+    var cityName: String?
+    var temperature: String?
+    var weatherCondition: String?
+    var humidity: String?
+    var precipitationProbability: String?
+    var pressure: String?
+    var windSpeed: String?
+    var windDeg: Double?
+    var windDirection: String?
+    var icon: UIImage?
+    private let defaultString = "-"
     
     init(model: CurrentWeather) {
         self.cityName = model.cityName
-        
-        let roundedTemperature = Int(model.temperature)
-        self.temperature = "\(roundedTemperature)°"
-        
         self.weatherCondition = model.weatherCondition
         
-        let roundedHumidity = Int(model.humidity)
-        self.humidity = "\(roundedHumidity)%"
+        self.temperature = self.formatValue(value: model.temperature, endStringWith: "°")
         
-        self.precipitationProbability = "\(model.precipitationProbability) mm"
         
-        let roundedPressure = Int(model.pressure)
-        self.pressure = "\(roundedPressure) hPa"
+        self.humidity = self.formatValue(value: model.humidity, endStringWith: "%")
         
-        let roundedWindSpeed = Int(model.windSpeed)
-        self.windSpeed = "\(roundedWindSpeed) km/h"
+        self.precipitationProbability = self.formatValue(value: model.precipitationProbability, endStringWith: " mm", castToInt: false)
         
-        let roundedWindDeg = Int(model.windDeg)
-        self.windDeg = "\(roundedWindDeg)"
+        self.pressure = self.formatValue(value: model.pressure, endStringWith: " hPa")
+        
+        self.windSpeed = self.formatValue(value: model.windSpeed, endStringWith: " km/h")
+        
+        self.windDeg = model.windDeg
         
         self.windDirection = "NE"
         
@@ -49,7 +45,17 @@ struct CurrentWeatherViewModel {
         self.icon = weatherIcon.image
     }
     
-    
-    
-    
+    func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {
+        var returnValue: String
+        
+        if value == Double.infinity {
+            returnValue = self.defaultString
+        } else if castToInt {
+            returnValue = "\(Int(value))"
+        } else {
+            returnValue = "\(value)"
+        }
+        
+        return returnValue.appending(endStringWith)
+    }
 }
