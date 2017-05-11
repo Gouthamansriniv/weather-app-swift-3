@@ -15,15 +15,15 @@ Weather Today is a simple iOS app for weather forecasting.
 
 [OpenWeatherMap](http://openweathermap.org/api) API used as weather provider.
 
-- Current Weather endpoint: ![view](http://api.openweathermap.org/data/2.5/forecast/daily?lat=4.5339&lon=-75.6812&cnt=7&mode=json&appid=933887d73fafeb70d31b6c5566986168)
+- Current Weather endpoint: [view](http://api.openweathermap.org/data/2.5/forecast/daily?lat=4.5339&lon=-75.6812&cnt=7&mode=json&appid=933887d73fafeb70d31b6c5566986168)
 
-- Forecast Weather enpoint used: ![view](http://api.openweathermap.org/data/2.5/forecast/daily/?appid=933887d73fafeb70d31b6c5566986168&lat=4.56521807401477&lon=-75.6534032286994&units=metric)
+- Forecast Weather enpoint used: [view](http://api.openweathermap.org/data/2.5/forecast/daily/?appid=933887d73fafeb70d31b6c5566986168&lat=4.56521807401477&lon=-75.6534032286994&units=metric)
 
-- Parameters of API respond: ![docs](http://openweathermap.org/weather-data)
+- Parameters of API respond: [docs](http://openweathermap.org/weather-data)
 
 ## Firebase Database
 
-Use ![Firebase Database](https://firebase.google.com/docs/database/ios/start) for simple storing of current location  and  temperature when this is available.
+Use [Firebase Database](https://firebase.google.com/docs/database/ios/start) for simple storing of current location  and  temperature when this is available.
 
 ## Screenshots
 
