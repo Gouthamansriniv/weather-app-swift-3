@@ -27,6 +27,8 @@
 		77B87F301EBECC2A0058D877 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77B87F2C1EBECC2A0058D877 /* ProximaNova-Light.otf */; };
 		77B87F311EBECC2A0058D877 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77B87F2D1EBECC2A0058D877 /* ProximaNova-Regular.otf */; };
 		77B87F321EBECC2A0058D877 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77B87F2E1EBECC2A0058D877 /* ProximaNova-Semibold.otf */; };
+		77CEE4871EC3784200587A7A /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CEE4861EC3784200587A7A /* ForecastWeather.swift */; };
+		77CEE48B1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CEE48A1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		77B87F2C1EBECC2A0058D877 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		77B87F2D1EBECC2A0058D877 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		77B87F2E1EBECC2A0058D877 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		77CEE4861EC3784200587A7A /* ForecastWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
+		77CEE48A1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeatherViewModel.swift; sourceTree = "<group>"; };
 		AB96B4D421E4DC9A5A822E3E /* Pods-Weather Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather Today/Pods-Weather Today.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +127,6 @@
 			children = (
 				7772CB3C1EC13D0E00574815 /* OpenWeatherMapError.swift */,
 				7772CB3E1EC1426B00574815 /* OpenWeatherMapAPIClient.swift */,
-				7772CB401EC145A800574815 /* Coordinate.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -171,10 +174,13 @@
 		77B87F1E1EBE35B30058D877 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7772CB401EC145A800574815 /* Coordinate.swift */,
 				77B87F161EBCC93C0058D877 /* WeatherDay.swift */,
 				77B87F221EBE36470058D877 /* CurrentWeather.swift */,
 				77B87F261EBE5BC90058D877 /* CurrentWeatherViewModel.swift */,
 				77B87F241EBE3D6A0058D877 /* WeatherIcon.swift */,
+				77CEE4861EC3784200587A7A /* ForecastWeather.swift */,
+				77CEE48A1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -361,10 +367,12 @@
 				7772CB341EBFD2EC00574815 /* WeatherTodayViewController.swift in Sources */,
 				7772CB441EC2730600574815 /* PermissionsViewController.swift in Sources */,
 				7772CB411EC145A800574815 /* Coordinate.swift in Sources */,
+				77CEE4871EC3784200587A7A /* ForecastWeather.swift in Sources */,
 				77B87EE11EBC02C70058D877 /* AppDelegate.swift in Sources */,
 				77B87F231EBE36470058D877 /* CurrentWeather.swift in Sources */,
 				7772CB3F1EC1426B00574815 /* OpenWeatherMapAPIClient.swift in Sources */,
 				7772CB3D1EC13D0E00574815 /* OpenWeatherMapError.swift in Sources */,
+				77CEE48B1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift in Sources */,
 				77B87F271EBE5BC90058D877 /* CurrentWeatherViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,17 +12,14 @@ import CoreLocation
 struct Coordinate {
     static var sharedInstance = Coordinate(latitude: 0.0, longitude: 0.0)
     
-//    init(latitude: Double, longitude: Double) {
-//        self.latitude = latitude
-//        self.longitude = longitude
-//    }
+    static let locationManager = CLLocationManager()
+    
+    typealias CheckLocationPermissionsCompletionHandler = (Bool) -> Void
+    static func checkForGrantedLocationPermissions(completionHandler completion: @escaping CheckLocationPermissionsCompletionHandler) {
+        let locationPermissionsStatus = CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+        completion(locationPermissionsStatus)
+    }
     
     var latitude: Double
     var longitude: Double
-}
-
-extension Coordinate: CustomStringConvertible {
-    var description: String {
-        return "&lat=\(latitude)&lon=\(longitude)"
-    }
 }

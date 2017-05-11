@@ -20,22 +20,21 @@ struct CurrentWeatherViewModel {
     var windDeg: Double?
     var windDirection: String?
     var icon: UIImage?
-    private let defaultString = "-"
     
     init(model: CurrentWeather) {
         self.cityName = model.cityName
         self.weatherCondition = model.weatherCondition
         
-        self.temperature = self.formatValue(value: model.temperature, endStringWith: "°")
+        self.temperature = CurrentWeatherViewModel.formatValue(value: model.temperature, endStringWith: "°")
         
         
-        self.humidity = self.formatValue(value: model.humidity, endStringWith: "%")
+        self.humidity = CurrentWeatherViewModel.formatValue(value: model.humidity, endStringWith: "%")
         
-        self.precipitationProbability = self.formatValue(value: model.precipitationProbability, endStringWith: " mm", castToInt: false)
+        self.precipitationProbability = CurrentWeatherViewModel.formatValue(value: model.precipitationProbability, endStringWith: " mm", castToInt: false)
         
-        self.pressure = self.formatValue(value: model.pressure, endStringWith: " hPa")
+        self.pressure = CurrentWeatherViewModel.formatValue(value: model.pressure, endStringWith: " hPa")
         
-        self.windSpeed = self.formatValue(value: model.windSpeed, endStringWith: " km/h")
+        self.windSpeed = CurrentWeatherViewModel.formatValue(value: model.windSpeed, endStringWith: " km/h")
         
         self.windDeg = model.windDeg
         
@@ -45,11 +44,12 @@ struct CurrentWeatherViewModel {
         self.icon = weatherIcon.image
     }
     
-    func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {
+    static func formatValue(value: Double, endStringWith: String = "", castToInt: Bool = true) -> String {
         var returnValue: String
+        let defaultString = "-"
         
         if value == Double.infinity {
-            returnValue = self.defaultString
+            returnValue = defaultString
         } else if castToInt {
             returnValue = "\(Int(value))"
         } else {

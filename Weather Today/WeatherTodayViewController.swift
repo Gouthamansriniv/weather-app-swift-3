@@ -9,7 +9,10 @@
 import UIKit
 import CoreLocation
 
-class WeatherTodayViewController: UIViewController, CLLocationManagerDelegate {
+let requestPermissionsIdentifier = "RequestPermissions"
+var currentWeatherViewModel: CurrentWeatherViewModel!
+
+class WeatherTodayViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet var weatherImageView: UIImageView!
@@ -22,10 +25,9 @@ class WeatherTodayViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var windSpeedLabel: UILabel!
     @IBOutlet var windDirectionLabel: UILabel!
     
-    let client = OpenWeatherMapAPIClient()
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
-    var currentWeatherViewModel: CurrentWeatherViewModel!
+    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     // MARK: - View Life Cycle
@@ -44,31 +46,44 @@ class WeatherTodayViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.checkForGrantedLocationPermissions()
+        self.checkPermissions()
     }
     
     // MARK: - View Methods
     
-    func setupActivityIndicator() {
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        let sharedText = "\(currentWeatherViewModel.cityName!.uppercased())'s temperature ---> \(currentWeatherViewModel.temperature!)"
+        let activityController = UIActivityViewController(activityItems: [sharedText, currentWeatherViewModel.icon!], applicationActivities: nil)
+        self.present(activityController, animated: true, completion: nil)
     }
     
-    func checkForGrantedLocationPermissions() {
-        let locationPermissionsStatus = CLLocationManager.authorizationStatus() == .authorizedWhenInUse
-        print("locationPermissionsStatus: \(CLLocationManager.authorizationStatus().hashValue)")
-        if locationPermissionsStatus {
-            currentLocation = locationManager.location
-            Coordinate.sharedInstance.latitude = currentLocation.coordinate.latitude
-            Coordinate.sharedInstance.longitude = currentLocation.coordinate.longitude
-            
-            self.locationManager.requestLocation()
-            self.getCurrentWeather()
-        } else {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "RequestPermissions") {
-                navigationController?.present(vc, animated: true)
+    func checkPermissions() {
+        Coordinate.checkForGrantedLocationPermissions() { [unowned self] allowed in
+            if allowed {
+                self.locationManager.requestLocation()
+                self.getCurrentWeather()
+            } else {
+                self.showPermissionsScreen()
+            }
+        }
+    }
+    
+    func showPermissionsScreen() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: requestPermissionsIdentifier) {
+            self.navigationController?.present(vc, animated: true)
+        }
+    }
+    
+    func getCurrentWeather() {
+        toggleRefreshAnimation(on: true)
+        DispatchQueue.main.async {
+            OpenWeatherMapAPIClient.client.getCurrentWeather(at: Coordinate.sharedInstance) {
+                [unowned self] currentWeather, error in
+                if let currentWeather = currentWeather {
+                    currentWeatherViewModel = CurrentWeatherViewModel(model: currentWeather)
+                    self.displayWeather(using: currentWeatherViewModel)
+                    self.toggleRefreshAnimation(on: false)
+                }
             }
         }
     }
@@ -85,26 +100,25 @@ class WeatherTodayViewController: UIViewController, CLLocationManagerDelegate {
         self.weatherImageView.image = viewModel.icon
     }
     
-    @IBAction func shareButtonPressed(_ sender: UIButton) {
-        let sharedText = "\(self.currentWeatherViewModel.cityName!.uppercased())'s temperature ---> \(self.currentWeatherViewModel.temperature!)"
-        let activityController = UIActivityViewController(activityItems: [sharedText, self.currentWeatherViewModel.icon!], applicationActivities: nil)
-        self.present(activityController, animated: true, completion: nil)
+    func setupActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
     }
     
-    func getCurrentWeather() {
-        toggleRefreshAnimation(on: true)
-        DispatchQueue.main.async {
-            self.client.getCurrentWeather(at: Coordinate.sharedInstance) { [unowned self] currentWeather, error in
-                if let currentWeather = currentWeather {
-                    self.currentWeatherViewModel = CurrentWeatherViewModel(model: currentWeather)
-                    self.displayWeather(using: self.currentWeatherViewModel)
-                    self.toggleRefreshAnimation(on: false)
-                }
-            }
+    func toggleRefreshAnimation(on: Bool) {
+        if on {
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+        } else {
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
-    
-    
+}
+
+extension WeatherTodayViewController: CLLocationManagerDelegate {
     // new location data is available
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
@@ -118,16 +132,10 @@ class WeatherTodayViewController: UIViewController, CLLocationManagerDelegate {
     // the location manager was unable to retrieve a location value
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
-        checkForGrantedLocationPermissions()
-    }
-    
-    func toggleRefreshAnimation(on: Bool) {
-        if on {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-        } else {
-            activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
+        Coordinate.checkForGrantedLocationPermissions() { allowed in
+            if !allowed {
+                self.showPermissionsScreen()
+            }
         }
     }
 }

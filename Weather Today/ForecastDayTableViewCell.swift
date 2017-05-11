@@ -11,6 +11,8 @@ import UIKit
 class ForecastDayTableViewCell: UITableViewCell {
     @IBOutlet var weatherConditionImageView: UIImageView!
     @IBOutlet var weekdayLabel: UILabel!
+    @IBOutlet var weatherConditionLabel: UILabel!
+    @IBOutlet var temperatureLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
