@@ -1,5 +1,5 @@
 # Weather Today - Swift 3
-============
+
 ![Language](https://img.shields.io/badge/Language-Swift%203-red.svg)
 ![Cocoapods](https://img.shields.io/badge/CocoaPods-latest-blue.svg)
 ![Firebase](https://img.shields.io/badge/Firebase--yellow.svg)
@@ -13,7 +13,7 @@ Weather Today is a simple iOS app for weather forecasting.
 
 ## Weather Provider?
 
-![OpenWeatherMap](http://openweathermap.org/api) API used as weather provider.
+[OpenWeatherMap](http://openweathermap.org/api) API used as weather provider.
 
 - Current Weather endpoint: ![view](http://api.openweathermap.org/data/2.5/forecast/daily?lat=4.5339&lon=-75.6812&cnt=7&mode=json&appid=933887d73fafeb70d31b6c5566986168)
 
