@@ -40,7 +40,7 @@ $ git clone https://github.com/jhoansebastianlara/weather-app-swift-3.git
 2) Install pods
 
 ```bash
-$ cd Weather\ Today/
+$ cd weather-app-swift-3/
 $ pod install
 ```
 
