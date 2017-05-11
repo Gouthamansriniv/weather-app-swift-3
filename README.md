@@ -1,4 +1,4 @@
-# Weather Today - Swift 3
+# Weather Today iOS APP - Swift 3
 
 ![Language](https://img.shields.io/badge/Language-Swift%203-red.svg)
 ![Cocoapods](https://img.shields.io/badge/CocoaPods-latest-blue.svg)
