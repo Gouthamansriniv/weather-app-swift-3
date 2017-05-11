@@ -1,5 +1,5 @@
 //
-//  ForeViewController.swift
+//  ForecastViewController.swift
 //  Weather Today
 //
 //  Created by Sebastián  Lara on 5/6/17.
@@ -9,15 +9,13 @@
 import UIKit
 import CoreLocation
 
-class ForeViewController: UIViewController {
+class ForecastViewController: UIViewController {
 
     // MARK: - Properties
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     
-    
-    let weatherDays:[String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
     var forecastWeatherViewModels: [ForecastWeatherViewModel] = []
@@ -43,7 +41,7 @@ class ForeViewController: UIViewController {
                 self.locationManager.requestLocation()
                 self.getForecastWeather()
             } else {
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequestPermissions") {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.REQUEST_PERMISSIONS_SEGUE_ID) {
                     self.navigationController?.present(vc, animated: true)
                 }
             }
@@ -74,7 +72,7 @@ class ForeViewController: UIViewController {
     }
     
     func showPermissionsScreen() {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: requestPermissionsIdentifier) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.REQUEST_PERMISSIONS_SEGUE_ID) {
             self.navigationController?.present(vc, animated: true)
         }
     }
@@ -90,17 +88,16 @@ class ForeViewController: UIViewController {
     }
 }
 
-extension ForeViewController: UITableViewDelegate, UITableViewDataSource {
+extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.forecastWeatherViewModels.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let forecastWeatherVM = self.forecastWeatherViewModels[indexPath.row]
-        let cellIdentifier = "ForecastCell"
         
         // Dequeue Reusable Cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ForecastDayTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.FORECAST_CELL_SEGUE_ID, for: indexPath) as! ForecastDayTableViewCell
         
         // Configure Cell
         cell.weatherConditionImageView.image = forecastWeatherVM.icon
@@ -112,7 +109,7 @@ extension ForeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ForeViewController: CLLocationManagerDelegate {
+extension ForecastViewController: CLLocationManagerDelegate {
     // new location data is available
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
@@ -121,7 +118,6 @@ extension ForeViewController: CLLocationManagerDelegate {
         Coordinate.sharedInstance.longitude = (manager.location?.coordinate.longitude)!
         // request forecast weather
         self.getForecastWeather()
-        print("didUpdateLocations")
     }
     
     // the location manager was unable to retrieve a location value

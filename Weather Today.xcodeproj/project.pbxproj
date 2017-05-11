@@ -17,8 +17,7 @@
 		77B87EE81EBC02C70058D877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B87EE61EBC02C70058D877 /* Main.storyboard */; };
 		77B87EEA1EBC02C70058D877 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B87EE91EBC02C70058D877 /* Images.xcassets */; };
 		77B87EED1EBC02C70058D877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B87EEB1EBC02C70058D877 /* LaunchScreen.storyboard */; };
-		77B87F171EBCC93C0058D877 /* WeatherDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F161EBCC93C0058D877 /* WeatherDay.swift */; };
-		77B87F1B1EBE06A60058D877 /* ForeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F1A1EBE06A60058D877 /* ForeViewController.swift */; };
+		77B87F1B1EBE06A60058D877 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F1A1EBE06A60058D877 /* ForecastViewController.swift */; };
 		77B87F1D1EBE08280058D877 /* ForecastDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F1C1EBE08280058D877 /* ForecastDayTableViewCell.swift */; };
 		77B87F231EBE36470058D877 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F221EBE36470058D877 /* CurrentWeather.swift */; };
 		77B87F251EBE3D6A0058D877 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B87F241EBE3D6A0058D877 /* WeatherIcon.swift */; };
@@ -29,6 +28,9 @@
 		77B87F321EBECC2A0058D877 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77B87F2E1EBECC2A0058D877 /* ProximaNova-Semibold.otf */; };
 		77CEE4871EC3784200587A7A /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CEE4861EC3784200587A7A /* ForecastWeather.swift */; };
 		77CEE48B1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CEE48A1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift */; };
+		77EB92B01EC3E84500939A02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77EB92AF1EC3E84500939A02 /* GoogleService-Info.plist */; };
+		77EB92B31EC3F25600939A02 /* FirebaseDBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EB92B21EC3F25600939A02 /* FirebaseDBProvider.swift */; };
+		77EB92B51EC3F42600939A02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EB92B41EC3F42600939A02 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +47,7 @@
 		77B87EE91EBC02C70058D877 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77B87EEC1EBC02C70058D877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77B87EEE1EBC02C70058D877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77B87F161EBCC93C0058D877 /* WeatherDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDay.swift; sourceTree = "<group>"; };
-		77B87F1A1EBE06A60058D877 /* ForeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForeViewController.swift; sourceTree = "<group>"; };
+		77B87F1A1EBE06A60058D877 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		77B87F1C1EBE08280058D877 /* ForecastDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDayTableViewCell.swift; sourceTree = "<group>"; };
 		77B87F221EBE36470058D877 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		77B87F241EBE3D6A0058D877 /* WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
@@ -57,6 +58,9 @@
 		77B87F2E1EBECC2A0058D877 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		77CEE4861EC3784200587A7A /* ForecastWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		77CEE48A1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeatherViewModel.swift; sourceTree = "<group>"; };
+		77EB92AF1EC3E84500939A02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77EB92B21EC3F25600939A02 /* FirebaseDBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDBProvider.swift; sourceTree = "<group>"; };
+		77EB92B41EC3F42600939A02 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AB96B4D421E4DC9A5A822E3E /* Pods-Weather Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather Today/Pods-Weather Today.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				7772CB3A1EC1374600574815 /* Cells */,
-				77B87F1A1EBE06A60058D877 /* ForeViewController.swift */,
+				77B87F1A1EBE06A60058D877 /* ForecastViewController.swift */,
 			);
 			name = ForecastViewController;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 		77B87EDF1EBC02C70058D877 /* Weather Today */ = {
 			isa = PBXGroup;
 			children = (
+				77EB92B11EC3F23C00939A02 /* plugins */,
 				7772CB3B1EC13CE900574815 /* API */,
 				77B87F211EBE35E90058D877 /* Resources */,
 				77B87F201EBE35C20058D877 /* Views */,
@@ -167,6 +172,7 @@
 				77B87F1E1EBE35B30058D877 /* Models */,
 				7772CB361EC12E7700574815 /* ApplicationDelegate */,
 				7772CB371EC12E9400574815 /* SupportingFiles */,
+				77EB92AF1EC3E84500939A02 /* GoogleService-Info.plist */,
 			);
 			path = "Weather Today";
 			sourceTree = "<group>";
@@ -175,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				7772CB401EC145A800574815 /* Coordinate.swift */,
-				77B87F161EBCC93C0058D877 /* WeatherDay.swift */,
 				77B87F221EBE36470058D877 /* CurrentWeather.swift */,
 				77B87F261EBE5BC90058D877 /* CurrentWeatherViewModel.swift */,
 				77B87F241EBE3D6A0058D877 /* WeatherIcon.swift */,
@@ -222,6 +227,15 @@
 				77B87F2E1EBECC2A0058D877 /* ProximaNova-Semibold.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		77EB92B11EC3F23C00939A02 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				77EB92B21EC3F25600939A02 /* FirebaseDBProvider.swift */,
+				77EB92B41EC3F42600939A02 /* Constants.swift */,
+			);
+			name = plugins;
 			sourceTree = "<group>";
 		};
 		7EDD603216EB50F6FBE5B085 /* Frameworks */ = {
@@ -296,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B87F301EBECC2A0058D877 /* ProximaNova-Light.otf in Resources */,
+				77EB92B01EC3E84500939A02 /* GoogleService-Info.plist in Resources */,
 				77B87EED1EBC02C70058D877 /* LaunchScreen.storyboard in Resources */,
 				77B87F2F1EBECC2A0058D877 /* ProximaNova-Bold.otf in Resources */,
 				77B87EEA1EBC02C70058D877 /* Images.xcassets in Resources */,
@@ -362,16 +377,17 @@
 			files = (
 				77B87F1D1EBE08280058D877 /* ForecastDayTableViewCell.swift in Sources */,
 				77B87F251EBE3D6A0058D877 /* WeatherIcon.swift in Sources */,
-				77B87F1B1EBE06A60058D877 /* ForeViewController.swift in Sources */,
-				77B87F171EBCC93C0058D877 /* WeatherDay.swift in Sources */,
+				77B87F1B1EBE06A60058D877 /* ForecastViewController.swift in Sources */,
 				7772CB341EBFD2EC00574815 /* WeatherTodayViewController.swift in Sources */,
 				7772CB441EC2730600574815 /* PermissionsViewController.swift in Sources */,
 				7772CB411EC145A800574815 /* Coordinate.swift in Sources */,
+				77EB92B51EC3F42600939A02 /* Constants.swift in Sources */,
 				77CEE4871EC3784200587A7A /* ForecastWeather.swift in Sources */,
 				77B87EE11EBC02C70058D877 /* AppDelegate.swift in Sources */,
 				77B87F231EBE36470058D877 /* CurrentWeather.swift in Sources */,
 				7772CB3F1EC1426B00574815 /* OpenWeatherMapAPIClient.swift in Sources */,
 				7772CB3D1EC13D0E00574815 /* OpenWeatherMapError.swift in Sources */,
+				77EB92B31EC3F25600939A02 /* FirebaseDBProvider.swift in Sources */,
 				77CEE48B1EC3CA0D00587A7A /* ForecastWeatherViewModel.swift in Sources */,
 				77B87F271EBE5BC90058D877 /* CurrentWeatherViewModel.swift in Sources */,
 			);
@@ -504,6 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastianlara.weather-today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -519,6 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastianlara.weather-today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

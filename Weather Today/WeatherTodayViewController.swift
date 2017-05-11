@@ -9,7 +9,6 @@
 import UIKit
 import CoreLocation
 
-let requestPermissionsIdentifier = "RequestPermissions"
 var currentWeatherViewModel: CurrentWeatherViewModel!
 
 class WeatherTodayViewController: UIViewController {
@@ -27,7 +26,6 @@ class WeatherTodayViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
-    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     // MARK: - View Life Cycle
@@ -40,12 +38,13 @@ class WeatherTodayViewController: UIViewController {
         // location manager setup
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startMonitoringSignificantLocationChanges()
         
         setupActivityIndicator()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.checkPermissions()
     }
     
@@ -69,7 +68,7 @@ class WeatherTodayViewController: UIViewController {
     }
     
     func showPermissionsScreen() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: requestPermissionsIdentifier) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.REQUEST_PERMISSIONS_SEGUE_ID) {
             self.navigationController?.present(vc, animated: true)
         }
     }
@@ -81,7 +80,10 @@ class WeatherTodayViewController: UIViewController {
                 [unowned self] currentWeather, error in
                 if let currentWeather = currentWeather {
                     currentWeatherViewModel = CurrentWeatherViewModel(model: currentWeather)
+                    // update UI
                     self.displayWeather(using: currentWeatherViewModel)
+                    // save weather
+                    FirebaseDBProvider.Instance.saveCurrentWeather(currentWeather: currentWeatherViewModel)
                     self.toggleRefreshAnimation(on: false)
                 }
             }

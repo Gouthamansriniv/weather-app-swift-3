@@ -14,9 +14,8 @@ class PermissionsViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     @IBOutlet var messagePermissionsLabel: UILabel!
-    let messageToRequestLocationPermissions = "Would you like to know the weather in your city? Then allow us know where you are :)"
-    let messageToUnallowedLocationPermissions = "You have denied us the location permissions. Please activate them in the Settings of your device to continue."
     
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class PermissionsViewController: UIViewController {
         self.checkForGrantedLocationPermissions()
     }
     
-    // MARK: View Methods
+    // MARK: - View Methods
     
     @IBAction func askForLocationPermissions() {
         if CLLocationManager.locationServicesEnabled() {
@@ -40,7 +39,7 @@ class PermissionsViewController: UIViewController {
             case .restricted, .denied:
                 self.displayLocationPermissionsDenied()
                 // show alert
-                let alert = UIAlertController(title: "Alert", message: "Please activate your location: Settings > Weather Today > Location > While Using the App", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: Constants.ACTIVE_LOCATION_PERMISSIONS, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true)
             case .authorizedAlways, .authorizedWhenInUse:
@@ -74,11 +73,11 @@ class PermissionsViewController: UIViewController {
     }
     
     func displayLocationPermissionsDenied() {
-        self.messagePermissionsLabel.text = self.messageToUnallowedLocationPermissions
+        self.messagePermissionsLabel.text = Constants.MESSAGE_DENIED_LOCATION_PERMISSIONS
     }
     
     func displayLocationPermissionsNotDeterminated() {
-        self.messagePermissionsLabel.text = self.messageToRequestLocationPermissions
+        self.messagePermissionsLabel.text = Constants.MESSAGE_REQUEST_LOCATION_PERMISSIONS
     }
     
     func authorizationCompleted() {

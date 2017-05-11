@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,17 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // customizing the navigation bar
-        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        // config firebase
+        FIRApp.configure()
+        // config UINavigationBar
+        let view = UIView(frame: CGRect(x: 10, y: 10, width: 10, height: 14))
+        view.backgroundColor = UIColor.yellow
+//        let image = UIImage(named: "LineColors")
+//        UINavigationBar.appearance().setBackgroundImage(image, for: .default)
         
-        let bottomLineColorImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.backgroundColor = UIColor.red
-            return imageView
-        }()
+        let borderBottomBackgroundView = UIView()
+        borderBottomBackgroundView.backgroundColor = UIColor.red
+        window?.addSubview(borderBottomBackgroundView)
         
-        UINavigationBar.appearance().addSubview(bottomLineColorImageView)
-        bottomLineColorImageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
         
         return true
     }

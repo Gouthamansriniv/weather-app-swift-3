@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Fore View Controller-->
+        <!--Forecast View Controller-->
         <scene sceneID="zA8-KR-n7L">
             <objects>
-                <viewController id="dwP-1S-4h1" customClass="ForeViewController" customModule="Weather_Today" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dwP-1S-4h1" customClass="ForecastViewController" customModule="Weather_Today" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8da-ed-1wx"/>
                         <viewControllerLayoutGuide type="bottom" id="RNw-tp-lwK"/>
@@ -306,7 +306,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1O6-0a-GP7" id="Bk4-4q-Zna">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-Q3-kal">
@@ -318,19 +318,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qQj-Ag-adk">
-                                                    <rect key="frame" x="99" y="8" width="213" height="73.5"/>
+                                                    <rect key="frame" x="99" y="8" width="213" height="74"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="U2g-SX-Uhf">
                                                             <rect key="frame" x="0.0" y="17" width="122.5" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWd-9g-Ues">
-                                                                    <rect key="frame" x="0.0" y="0.5" width="86.5" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="86.5" height="24"/>
                                                                     <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain Showers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ1-f0-jU1">
-                                                                    <rect key="frame" x="0.0" y="24.5" width="95.5" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="24" width="122.5" height="16"/>
                                                                     <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

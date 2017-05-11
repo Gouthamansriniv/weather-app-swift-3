@@ -16,8 +16,15 @@ struct Coordinate {
     
     typealias CheckLocationPermissionsCompletionHandler = (Bool) -> Void
     static func checkForGrantedLocationPermissions(completionHandler completion: @escaping CheckLocationPermissionsCompletionHandler) {
-        let locationPermissionsStatus = CLLocationManager.authorizationStatus() == .authorizedWhenInUse
-        completion(locationPermissionsStatus)
+        let locationPermissionsStatusGranted = CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+        
+        if locationPermissionsStatusGranted {
+            let currentLocation = locationManager.location
+            Coordinate.sharedInstance.latitude = (currentLocation?.coordinate.latitude)!
+            Coordinate.sharedInstance.longitude = (currentLocation?.coordinate.longitude)!
+        }
+        
+        completion(locationPermissionsStatusGranted)
     }
     
     var latitude: Double

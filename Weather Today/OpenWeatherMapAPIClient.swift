@@ -15,18 +15,16 @@ class OpenWeatherMapAPIClient {
     fileprivate let apiKey = "933887d73fafeb70d31b6c5566986168"
     
     lazy var baseUrl: URL = {
-        return URL(string: "http://api.openweathermap.org/data/2.5/")!
+        return URL(string: Constants.API_BASE_URL)!
     }()
     
-    let endpointCurrentWeather = "weather/"
-    let endpointForecastWeather = "forecast/daily/"
     
     typealias CurrentWeatherCompletionHandler = (CurrentWeather?, OpenWeatherMapError?) -> Void
     typealias ForecastWeatherCompletionHandler = ([ForecastWeather]?, OpenWeatherMapError?) -> Void
     
     func getCurrentWeather(at coordinate: Coordinate, completionHandler completion: @escaping CurrentWeatherCompletionHandler) {
         
-        guard let url = URL(string: endpointCurrentWeather, relativeTo: baseUrl) else {
+        guard let url = URL(string: Constants.API_ENDPOINT_CURRENT_WEATHER, relativeTo: baseUrl) else {
             completion(nil, .invalidUrl)
             return
         }
@@ -54,7 +52,7 @@ class OpenWeatherMapAPIClient {
     
     func getForecastWeather(at coordinate: Coordinate, completionHandler completion: @escaping ForecastWeatherCompletionHandler) {
         
-        guard let url = URL(string: endpointForecastWeather, relativeTo: baseUrl) else {
+        guard let url = URL(string: Constants.API_ENDPOINT_FORECAST_WEATHER, relativeTo: baseUrl) else {
             completion(nil, .invalidUrl)
             return
         }
