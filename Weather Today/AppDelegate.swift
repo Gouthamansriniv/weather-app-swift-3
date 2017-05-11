@@ -18,18 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // config firebase
         FIRApp.configure()
-        // config UINavigationBar
-        let view = UIView(frame: CGRect(x: 10, y: 10, width: 10, height: 14))
-        view.backgroundColor = UIColor.yellow
-//        let image = UIImage(named: "LineColors")
-//        UINavigationBar.appearance().setBackgroundImage(image, for: .default)
-        
-        let borderBottomBackgroundView = UIView()
-        borderBottomBackgroundView.backgroundColor = UIColor.red
-        window?.addSubview(borderBottomBackgroundView)
-        
-        
-        
         return true
     }
     

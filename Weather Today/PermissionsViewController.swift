@@ -14,6 +14,9 @@ class PermissionsViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     @IBOutlet var messagePermissionsLabel: UILabel!
+    let myImage = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    var imageConstraints:[NSLayoutConstraint] = []
+    
     
     // MARK: - View Life Cycle
     
@@ -22,6 +25,18 @@ class PermissionsViewController: UIViewController {
         // location manager setup
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        myImage.translatesAutoresizingMaskIntoConstraints = false
+        myImage.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        self.view.addSubview(myImage)
+        
+        let topConstraint = myImage.topAnchor.constraint(equalTo: self.view.topAnchor)
+        let bottomConstraint = myImage.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        let leftConstraint = myImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let rightConstraint = myImage.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        
+        imageConstraints = [topConstraint, bottomConstraint, leftConstraint, rightConstraint]
+        NSLayoutConstraint.activate(imageConstraints)
     }
     
     override func viewWillAppear(_ animated: Bool) {
