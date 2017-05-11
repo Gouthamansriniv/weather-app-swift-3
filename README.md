@@ -7,7 +7,7 @@
 
 Weather Today is a simple iOS app for weather forecasting. 
 
-- It show the actual weather for your current location. In the forecast tab, show the forecast for the next 7 days at your current location. 
+- It shows the actual weather for your current location. In the forecast tab, show the forecast for the next 7 days at your current location. 
 
 - This app support iOS 9+
 
