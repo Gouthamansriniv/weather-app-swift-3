@@ -52,8 +52,6 @@ $ open "Weather Today.xcworkspace"
 
 4) Sign up on [openweathermap.org/appid](http://openweathermap.org/appid) to get an appid
 
-*Please replace "your-openweathermap-appid" with your actual appid key.*
-
 You should find `OpenWeatherMapAPIClient.swift` file and put your appid in the line 15:
 
 ``fileprivate let apiKey = "YOUR_ID"``
